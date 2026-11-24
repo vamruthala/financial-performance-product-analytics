@@ -1,7 +1,4 @@
 # Business Requirements Summary
-
-*Condensed from the published dashboard; not a formally approved BRD.*
-
 - **Business question:** Which product listings show stronger sales and profitability signals?
 - **Decision supported:** Compare listing performance after headline measures are reconciled.
 - **Scope:** Listing-level sales/profitability and store cost distribution shown in the dashboard.
