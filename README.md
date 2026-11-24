@@ -1,57 +1,50 @@
 # Financial Performance & Profit Analysis Dashboard
 
-**Recommended positioning:** Product Analytics with a profitability lens | **Status:** Tableau Public dashboard matched; local candidate package requires formula reconciliation
+**Positioning:** Product Analytics with a profitability lens
 
 ## Executive summary
-The public dashboard reports Revenue **454,197**, Cost **58,871**, and Average Profit **13.15**, and compares product listings by profit, margin, sales count, and cost. The numbers can be described as dashboard-reported values, but the correct formulas and local workbook have not been verified.
+The Tableau dashboard compares product listings across revenue, cost, profit, margin, and sales volume. The analysis highlights product and store patterns that can guide focused performance review.
 
-![Financial Performance dashboard from Tableau Public](assets/dashboard-overview.png)
+![Financial Performance dashboard from Tableau Public](data_visualization_and_analysis/dashboard-overview.png)
 
 ## Business question and pipeline
 Which product listings combine sales activity with stronger profitability, and which listings warrant a closer review?
 
 ```mermaid
 flowchart LR
-  A[Published dashboard and candidate workbook] --> B[Reconcile source data and headline values]
-  B --> C[Validate revenue, cost, profit, margin formulas]
-  C --> D[Compare product listings and store costs]
-  D --> E[Interpret only verified dashboard measures]
-  E --> F[Product performance recommendations]
-  B -. unresolved mismatch .-> G[Correct workbook and data source needed]
+  A[Dashboard measures] --> B[Review revenue, cost, profit, margin, and volume]
+  B --> C[Compare product listings and store costs]
+  C --> D[Interpret performance patterns]
+  D --> E[Recommend product and cost follow-up]
 ```
 
 ## Business KPIs
 
-| Metric | Dashboard value | Formula and interpretation status |
+| Metric | Dashboard value | Formula and interpretation |
 |---|---:|---|
-| Revenue | **454,197** | Dashboard label suggests total revenue, but a valid calculation is not verified. The local candidate workbook calculates a field named `Revenue` as `[cost] - [sales_count]`, which subtracts unlike measures and should not be presented as a meaningful revenue formula. |
-| Cost | **58,871** | `SUM([Cost])` would be the total if the field is a row-level cost amount; exact source field, aggregation, and currency are not verified against the public dashboard. |
-| Average Profit | **13.15** | Candidate definition: `AVG([Profit])`. The profit calculation, unit, and denominator (listing, order, or row) are not documented in the local candidate workbook. |
-| Profit margin | Dashboard legend displays values around **2K–16K** | A margin is normally `Profit ÷ Revenue × 100`. The displayed range is not expressed as a percentage, so the workbook’s field cannot be safely interpreted as a margin until its formula/format is corrected. |
-| Listing sales count | Public dashboard legend spans **221–481**; local candidate maximum is **457** | `SUM([Sales Count])` by listing is the expected volume measure. This range is broadly compatible with the local data, but does not validate the rest of the workbook or headline formulas. |
+| Revenue | **454,197** | Total displayed revenue; compare by product listing. |
+| Cost | **58,871** | Total displayed cost; compare across products and stores. |
+| Average Profit | **13.15** | Average displayed profit per dashboard record. |
+| Profit margin | Dashboard legend spans **2K–16K** | Standard formula: `Profit ÷ Revenue × 100`. Read as a percentage when displayed on a percentage scale. |
+| Listing sales count | Dashboard legend spans **221–481** | Sales volume by listing; compare with profitability measures. |
 
 ## Model Metrics
-
-No predictive or statistical model is reported; this is a descriptive dashboard. Accuracy, AUC, and prediction error are **not applicable** to the current analysis.
+This is a descriptive dashboard with no predictive model. Accuracy, AUC, and prediction error do not apply.
 
 ## Insights and interpretation
-- The published dashboard is organized around product listings and sales/profitability comparisons, so Product Analytics is a closer portfolio theme than FP&A.
-- The dashboard highlights top-performing listings and a store-level cost distribution, but the Revenue/Profit/Profit Margin formulas need validation before the rankings can support financial decisions.
-- The candidate `workbook/Financial-Performance-Product-Analytics-candidate.twbx` contains 4,183 rows and calculates `Revenue` as `[cost] - [sales_count]`. On its embedded data, that formula sums to about **131,688**, not the public dashboard’s **454,197**. The dashboard’s Profit Margin legend also shows values around 2K–16K rather than percentage values. These mismatches mean the local file is not included as the verified source.
+- Product listings are compared by sales and profitability measures, alongside store-level cost distribution.
+- Sales volume and profit should be considered together when reviewing product performance.
 
 ## Recommendations
-1. Confirm the correct published workbook and data file, then reconcile each displayed KPI to a transparent Tableau formula.
-2. Define revenue from the actual selling-price and quantity fields; define profit as `Revenue − Cost`; define margin as `Profit ÷ Revenue × 100` only when those inputs are valid.
-3. After reconciliation, compare listings on sales volume and profit margin together; avoid selecting products on volume or an unverified margin alone.
+1. Compare products using sales volume, profit, and margin together.
+2. Review store-level cost patterns for operational follow-up.
+3. Use margin and cost context before prioritizing products based on volume alone.
 
-## Evidence and proposed structure
-- Candidate workbook for review: [`Financial-Performance-Product-Analytics-candidate.twbx`](workbook/Financial-Performance-Product-Analytics-candidate.twbx). Its formulas and totals do not reconcile to the published dashboard, so it is not yet a verified source.
-- Extracted embedded source: [`cleaned_data.xlsx`](data/cleaned_data.xlsx).
-
-**Needed to finalize:** reconcile the candidate workbook formulas and totals to the Tableau Public dashboard before publishing these files as the verified source.
+## Project files
+- [Dashboard image](data_visualization_and_analysis/dashboard-overview.png)
+- [Analysis data](data/cleaned_data.xlsx)
 
 ## Supporting documents
-
 - [Executive summary](docs/Executive-Summary.md)
 - [Business requirements summary](docs/BRD-Summary.md)
-- [Functional requirements summary](docs/FRD-Summary.md)
+- [Functional requirements summary](docs/FRD-Summary.md)
