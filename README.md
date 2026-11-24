@@ -54,7 +54,4 @@ No predictive or statistical model is reported; this is a descriptive dashboard.
 
 - [Executive summary](docs/Executive-Summary.md)
 - [Business requirements summary](docs/BRD-Summary.md)
-- [Functional requirements summary](docs/FRD-Summary.md)
-
-The source reports do not document an existing-state (As-Is) process; none is presented as fact.
-
+- [Functional requirements summary](docs/FRD-Summary.md)
