@@ -1,11 +1,11 @@
 # Financial Performance & Profit Analysis Dashboard
 
-**Recommended positioning:** Product Analytics with a profitability lens | **Status:** published measures found; local source mismatch needs resolution
+**Recommended positioning:** Product Analytics with a profitability lens | **Status:** Tableau Public dashboard matched; local candidate package requires formula reconciliation
 
 ## Executive summary
 The public dashboard reports Revenue **454,197**, Cost **58,871**, and Average Profit **13.15**, and compares product listings by profit, margin, sales count, and cost. The numbers can be described as dashboard-reported values, but the correct formulas and local workbook have not been verified.
 
-![Financial Performance & Profit Analysis Tableau dashboard](assets/dashboard-overview.png)
+![Financial Performance dashboard from Tableau Public](assets/dashboard-overview.png)
 
 ## Business question and pipeline
 Which product listings combine sales activity with stronger profitability, and which listings warrant a closer review?
@@ -37,7 +37,7 @@ No predictive or statistical model is reported; this is a descriptive dashboard.
 ## Insights and interpretation
 - The published dashboard is organized around product listings and sales/profitability comparisons, so Product Analytics is a closer portfolio theme than FP&A.
 - The dashboard highlights top-performing listings and a store-level cost distribution, but the Revenue/Profit/Profit Margin formulas need validation before the rankings can support financial decisions.
-- The local candidate `BI Final Project Tableau work.twbx` contains 4,183 rows and calculates `Revenue` as `[cost] - [sales_count]`. On its embedded data, that formula sums to about **131,688**, not the public dashboard’s **454,197**. The dashboard’s Profit Margin legend also shows values around 2K–16K rather than percentage values. These mismatches mean the local file is not included as the verified source.
+- The candidate `workbook/Financial-Performance-Product-Analytics-candidate.twbx` contains 4,183 rows and calculates `Revenue` as `[cost] - [sales_count]`. On its embedded data, that formula sums to about **131,688**, not the public dashboard’s **454,197**. The dashboard’s Profit Margin legend also shows values around 2K–16K rather than percentage values. These mismatches mean the local file is not included as the verified source.
 
 ## Recommendations
 1. Confirm the correct published workbook and data file, then reconcile each displayed KPI to a transparent Tableau formula.
@@ -45,9 +45,10 @@ No predictive or statistical model is reported; this is a descriptive dashboard.
 3. After reconciliation, compare listings on sales volume and profit margin together; avoid selecting products on volume or an unverified margin alone.
 
 ## Evidence and proposed structure
-- No verified `.twbx` or matching source data is included. The local candidate `.twbx` is excluded because its formulas and totals do not reconcile to the published dashboard.
+- Candidate workbook for review: [`Financial-Performance-Product-Analytics-candidate.twbx`](workbook/Financial-Performance-Product-Analytics-candidate.twbx). Its formulas and totals do not reconcile to the published dashboard, so it is not yet a verified source.
+- Extracted embedded source: [`cleaned_data.xlsx`](data/cleaned_data.xlsx).
 
-**Needed to finalize:** the Tableau workbook and source dataset that produced the public dashboard. The local `BI Final Project Tableau work.twbx` is excluded until its mismatch is resolved. The available report material does not support a formal BRD/FRD, As-Is process, or stakeholder plan.
+**Needed to finalize:** reconcile the candidate workbook formulas and totals to the Tableau Public dashboard before publishing these files as the verified source.
 
 ## Supporting documents
 
@@ -56,5 +57,4 @@ No predictive or statistical model is reported; this is a descriptive dashboard.
 - [Functional requirements summary](docs/FRD-Summary.md)
 
 The source reports do not document an existing-state (As-Is) process; none is presented as fact.
-
 
